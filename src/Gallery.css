@@ -1,0 +1,13 @@
+.Gallery-Main {
+    margin: 10% 0;
+    display: grid;
+    place-items: center;
+    gap: 0.5em;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.Gallery-MainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
