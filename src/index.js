@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Introduce from './Introduce';
 import Gallery from './Gallery';
+import BankInfo from './BankInfo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       {/* <App /> */}
       <Introduce />
       <Gallery />
+      <BankInfo />
     </div>
   </React.StrictMode>
 );
