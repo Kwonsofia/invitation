@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="mainImage">
+        <div>
+            <img src="image/photo.png">
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="introduce">
+        <div>
+            If we can’t accept limitations,
+        </div>
+        <div>
+            then we’re no better than the bad guys.
+        </div>
+        <div>– Iron Man</div>
+
+
+    </div>
+
+    <br><br>
+
+    <div class="phone">
+        <div class="content">
+            <div>
+                <p>
+                    000 * 000 <span> 의 00 </span> name
+                </p>
+                <p>
+                    000 * 000 <span> 의 00 </span> name
+                </p>
+            </div>
+            <button id="call" class="button">연락하기</a>
+        </div>
+
+        <div id="modal-container">
+            <div class="modal-background">
+                <div class="modal">
+                    <div>
+                        연락하기
+                    </div>
+                    <table>
+                        <tr>
+                            <td>ㅅㄹ</td>
+                            <td>name</td>
+                            <td><a class="number" href="tel:010-1234-1234">전화 1</a></td>
+                        </tr>
+                        <tr>
+                            <td>ㅅㄹㅇㅂㅈ</td>
+                            <td>name</td>
+                            <td><a class="number" href="tel:010-1234-1234">전화 1</a></td>
+                        </tr>
+                        <tr>
+                            <td>ㅅㄹㅇㅁㄴ</td>
+                            <td>name</td>
+                            <td><a class="number" href="tel:010-1234-1234">전화 1</a></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td>ㅅㅂ</td>
+                            <td>name</td>
+                            <td><a class="number" href="tel:010-1234-1234">전화 1</a></td>
+                        </tr>
+                        <tr>
+                            <td>ㅅㅂㅇㅂㅈ</td>
+                            <td>name</td>
+                            <td><a class="number" href="tel:010-1234-1234">전화 1</a></td>
+                        </tr>
+                        <tr>
+                            <td>ㅅㅂㅇㅁㄴ</td>
+                            <td>name</td>
+                            <td><a class="number" href="tel:010-1234-1234">전화 1</a></td>
+                        </tr>
+
+                    </table>
+                    <button id="close-modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="phone.js"></script>
+
+    <br><br>
+
+    <div class="calender">
+        <table class="calender-table">
+            <thead>
+                <tr>
+                    <td colspan="7">
+                        <span id="calYear"></span>.
+                        <span id="calMonth"></span>.
+                        <span id="calDay"></span>
+                        <br>
+                        <span id="calTime"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sunday">일</td>
+                    <td>월</td>
+                    <td>화</td>
+                    <td>수</td>
+                    <td>목</td>
+                    <td>금</td>
+                    <td>토</td>
+                </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="canlender.js"></script>
+
+    <br><br>
+
+    <div class="gallery">
+        <div class="slide_item"><img src="image/chrome.png" alt=""></div>
+        <div class="slide_item"><img src="image/github.png" alt=""></div>
+        <div class="slide_item"><img src="image/paypal.png" alt=""></div>
+        <div class="slide_item"><img src="image/photo.png" alt=""></div>
+        <div class="slide_item"><img src="image/terminal.png" alt=""></div>
+        <div class="slide_prev_button slide_button"></div>
+        <div class="slide_next_button slide_button"></div>
+        <ul class="slide_pagination"></ul>
+    </div>
+    <script src="slide.js"></script>
+
+    <br><br>
+
+    <div class="map">
+        <!-- 참고: https://bos.kr/kwa-manual_v-1668?pc=p -->
+        <div class="kakao-map">
+            <div>
+                <a href="https://map.kakao.com/?urlX=520941.0&amp;urlY=1140835.0&amp;itemId=7976714&amp;q=%EC%8B%A0%EC%95%84%ED%83%80%EC%9A%B4&amp;srcid=7976714&amp;map_type=TYPE_MAP&amp;from=roughmap"
+                    target="_blank">
+                    <img class="map-img"
+                        src="http://t1.daumcdn.net/roughmap/imgmap/5e7ac56c5adb4131b192346d8514f22bf9f7594699d98355242a4d724a81ff39"></a>
+            </div>
+            <div class="kakao-map-menu">
+                <a href="https://map.kakao.com" target="_blank">
+                    <img src="https://i.namu.wiki/i/lqKuo3i_ODZGkbxOA_df4Idn4_cm8GtgyKaSNwfxhX1H3J7Eewgnvbtyxgk2jVsEIHDFUbgdthaOL_tGm4yMMQ.svg"
+                        alt="카카오맵"></a>
+                <div><a target="_blank"
+                        href="https://map.kakao.com/?from=roughmap&amp;srcid=7976714&amp;confirmid=7976714&amp;q=%EC%8B%A0%EC%95%84%ED%83%80%EC%9A%B4&amp;rv=on">
+                        로드뷰
+                    </a>
+                    <span></span>
+                    <a target="_blank"
+                        href="https://map.kakao.com/?from=roughmap&amp;eName=%EC%8B%A0%EC%95%84%ED%83%80%EC%9A%B4&amp;eX=520941.0&amp;eY=1140835.0">
+                        길찾기
+                    </a>
+                    <span></span>
+                    <a target="_blank"
+                        href="https://map.kakao.com?map_type=TYPE_MAP&amp;from=roughmap&amp;srcid=7976714&amp;itemId=7976714&amp;q=%EC%8B%A0%EC%95%84%ED%83%80%EC%9A%B4&amp;urlX=520941.0&amp;urlY=1140835.0">
+                        지도 크게 보기
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="bank">
+        <h3>?????</h3>
+        <div class="account">
+            <div class="triggerToggle">
+                <p>1111111</p><span>✅</span>
+            </div>
+            <div class="target">
+                <div class="clipboard">
+                    <p>div의 내용입니다.</p>
+                    <button>복사하기</button>
+                </div>
+                <div class="clipboard">
+                    <p>div11의 내용입니다.</p>
+                    <button>복사하기</button>
+                </div>
+            </div>
+        </div>
+        <div class="account">
+            <div class="triggerToggle">
+                <p>222222</p><span>✅</span>
+            </div>
+            <div class="target">
+                <div class="clipboard">
+                    <p>div2의 내용입니다.</p>
+                    <button>복사하기</button>
+                </div>
+                <div class="clipboard">
+                    <p>div222의 내용입니다.</p>
+                    <button>복사하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bank.js"></script>
+
+    <br><br>
+
+    <div class="comment">
+    </div>
+
+</body>
+
+</html>

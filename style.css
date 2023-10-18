@@ -1,0 +1,507 @@
+body {
+    margin: 5%;
+}
+
+.mainImage {
+    margin: 10% 0;
+}
+
+.mainImage>div>img {
+    width: 100%;
+}
+
+.introduce {
+    margin: 10% 0;
+    text-align: center;
+}
+
+/* Phone */
+.phone {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+    font-family: helvetica neue, helvetica, arial, sans-serif;
+}
+
+.content {
+    min-height: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 0;
+}
+
+.content .button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background: #efefef;
+    padding: 10px 30px;
+    margin: 10px;
+    border-radius: 3em;
+    border: 0;
+    color: #333;
+}
+
+.content .button:hover {
+    color: #fff;
+    background-color: #f8cfca;
+}
+
+#modal-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: table;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    /* hidden 처리 */
+    transform: scale(0);
+}
+
+#modal-container .modal-background {
+    display: table-cell;
+    background: rgba(0, 0, 0, 1);
+    text-align: center;
+    vertical-align: middle;
+}
+
+#modal-container .modal-background .modal {
+    display: inline-block;
+    position: relative;
+    background-color: #fefefe;
+    width: 80%;
+}
+
+.modal>table {
+    width: 100%;
+    margin: 5% 0;
+}
+
+.modal>table>tr {
+    padding: 5% 0;
+}
+
+.modal>table>tr>td {
+    text-align: center;
+
+}
+
+.modal>div {
+    padding: 5%;
+    background-color: #f8cfca;
+}
+
+.modal>hr {
+    margin: 0 7%;
+    transform: scaleY(0.5);
+}
+
+#close-modal {
+    padding: 5px 30px;
+    border: 0;
+    border-radius: 3em;
+    margin-bottom: 5%;
+}
+
+.number {
+    text-decoration: none;
+    color: black;
+}
+
+/*
+* ------------------------------
+* Revealing Animation
+* ------------------------------
+*/
+#modal-container.call {
+    transform: scale(1);
+}
+
+#modal-container.call .modal-background {
+    background: transparent;
+    animation: fadeIn .5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.call .modal-background .modal {
+    /* 콘텐츠를 초기에 보여주지 않음 */
+    opacity: 0;
+    animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.call.out {
+    /* 전체 모달 컨테이너를 숨김 처리(다른 애니메이션이 모두 끝난 0.5초 후에 처리하기 위해 0.5초 지연시킴 */
+    animation: quickScaleDown 0s .5s linear forwards;
+}
+
+#modal-container.call.out .modal-background {
+    animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.call.out .modal-background .modal {
+    animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.content.call.out {
+    animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Dimmed showing */
+@keyframes fadeIn {
+    0% {
+        background: transparent;
+    }
+
+    100% {
+        background: rgba(0, 0, 0, .7);
+    }
+}
+
+/* Show modal content from bottom to top */
+@keyframes scaleUp {
+    0% {
+        /* 모달 콘텐츠를 하단에 위치시킴 */
+        transform: scale(.8) translateY(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        /* 모달 콘텐츠를 본래 위치로 돌려놓음 */
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Shrink content */
+@keyframes scaleBack {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(.8);
+    }
+}
+
+/* Hide modal container*/
+@keyframes quickScaleDown {
+    0% {
+        transform: scale(1);
+    }
+
+    99.9% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+/* Dimmed hiding */
+@keyframes fadeOut {
+    0% {
+        background: rgba(0, 0, 0, .7);
+    }
+
+    100% {
+        background: transparent;
+    }
+}
+
+/* modal content from top to bottom */
+@keyframes scaleDown {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(.8) translateY(1000px);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleBack {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(.85);
+    }
+}
+
+@keyframes scaleForward {
+    0% {
+        transform: scale(0.85);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Gallery */
+.gallery {
+    /* layout */
+    display: flex;
+    flex-wrap: nowrap;
+    /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+    overflow: hidden;
+
+    /* position */
+    /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+    position: relative;
+
+    /* size */
+    width: 100%;
+
+    /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+    user-select: none;
+}
+
+.slide_item {
+    /* layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+    position: relative;
+    left: 0px;
+
+    /* size */
+    width: 100%;
+    height: auto;
+    /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+    flex-shrink: 0;
+
+    /* transition */
+    transition: left 0.15s;
+}
+
+.slide_item>img {
+    width: 90%;
+    margin: 10%;
+}
+
+.slide_button {
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* position */
+    position: absolute;
+    /* 버튼이 중앙에 위치하게 하기위해 계산 */
+    top: calc(50% - 16px);
+
+    /* size */
+    width: 32px;
+    height: 32px;
+
+    /* style */
+    cursor: pointer;
+}
+
+.slide_prev_button {
+    left: 10px;
+}
+
+.slide_next_button {
+    right: 10px;
+}
+
+/* 페이지네이션 스타일 */
+ul,
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.slide_pagination {
+    /* layout */
+    display: flex;
+    gap: 5px;
+
+    /* position */
+    position: absolute;
+    bottom: 0;
+    /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slide_pagination>li {
+    /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+    color: rgba(227, 227, 227, 0.533);
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.slide_pagination>li.active {
+    /* 현재 슬라이드 색상은 투명도 없이 */
+    color: #cacaca;
+}
+
+
+/* Calender */
+.calender {
+    width: 100%;
+    position: relative;
+}
+
+.calender-table {
+    position: relative;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 10% 10% 0 10%
+}
+
+.calender-table td {
+    padding: 1%;
+}
+
+.calender-table>thead>tr:first-child>td {
+    font-weight: bold;
+}
+
+#calTime {
+    font-weight: lighter;
+}
+
+.calender-table>thead>tr:last-child>td {
+    color: black;
+}
+
+#sunday {
+    color: #DC143C;
+}
+
+.today {
+    /* background-image: url('data:image/png;base64,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'); */
+    background-size: auto 90%;
+    background-position: center 80%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* Map */
+.kakao-map {
+    font: normal normal 400 12px/normal dotum, sans-serif;
+    width: 100%;
+    height: auto;
+    color: #333;
+    position: relative
+}
+
+.map-img {
+    width: 100%;
+    height: auto;
+}
+
+.kakao-map-menu {
+    overflow: hidden;
+    padding: 7px 11px;
+    border-radius: 0px 0px 2px 2px;
+    background-color: rgb(249, 249, 249);
+}
+
+.kakao-map-menu>a {
+    float: left;
+}
+
+.kakao-map-menu>a>img {
+    display: block;
+    width: auto;
+    height: 16px;
+
+}
+
+.kakao-map-menu>div {
+    float: right;
+    position: relative;
+    top: 1px;
+    font-size: 11px;
+}
+
+.kakao-map-menu>div>a {
+    float: left;
+    height: 15px;
+    padding-top: 1px;
+    line-height: 15px;
+    color: #000;
+    text-decoration: none;
+}
+
+.kakao-map-menu>div>span {
+    width: 1px;
+    padding: 0;
+    margin: 0 8px 0 9px;
+    height: 11px;
+    vertical-align: top;
+    position: relative;
+    top: 2px;
+    border-left: 1px solid #d0d0d0;
+    float: left;
+}
+
+
+/* Bank */
+.bank {
+    box-sizing: border-box;
+}
+
+.bank>h3 {
+    text-align: center;
+}
+
+.bank .account {
+    margin: 10px 0;
+    width: 100%;
+    background-color: #f8cfca;
+}
+
+.bank .account .triggerToggle {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.bank .account .target .clipboard {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.bank .account>div>p {
+    margin: 0;
+}
+
+.bank .account .target {
+    background-color: #ffd000;
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+    box-sizing: border-box;
+    /* display: none; */
+    color: #333;
+    padding: 10px;
+}
+
+.bank .account .target>div>button {
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px 0;
+
+}
