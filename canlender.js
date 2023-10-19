@@ -1,7 +1,7 @@
 // 참고: https://sirius7.tistory.com/35
 
 let wedding_year = 2023;
-let wedding_month = 10;  // 실제 월 - 1 (11월이면 10으로)
+let wedding_month = 10; // 실제 월 - 1 (11월이면 10으로)
 let wedding_day = 11;
 let wedding_time = "0요일 ?? 00시 00분";
 
@@ -44,7 +44,7 @@ function buildCalendar() {
     // }
     if (nowDay.getDay() == 6) {
       // 토요일인 경우 글자색 파랑으로 하고
-    //   nowColumn.style.color = "#0000CD";
+      //   nowColumn.style.color = "#0000CD";
       nowRow = tbody_Calendar.insertRow(); // 새로운 행 추가
     }
 
@@ -62,3 +62,22 @@ function buildCalendar() {
 //     }
 //     return value;
 // }
+
+var day_count = document.querySelector("#day-count>span");
+var day_sentence = document.querySelector("#day-count>p");
+const toDate = new Date();
+const weddingDate = new Date(wedding_year, wedding_month, wedding_day);
+let diff = weddingDate.getTime() - toDate.getTime();
+if (diff == 0) {
+  day_sentence.innerText = "오늘입니다.";
+} else {
+  diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  if (diff < 0) {
+    day_sentence.innerText = "지났습니다.";
+  } else {
+    day_count.innerText = diff;
+    day_sentence.innerText = "일 남았습니다.";
+  }
+}
+
+console.log(diff);
