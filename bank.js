@@ -20,7 +20,7 @@ clipBoard.forEach((target) =>
 );
 
 function copyAccount(target) {
-  var targetText = target.querySelector("p");
+  var targetText = target.querySelector("#account");
   console.log(targetText.textContent);
   window.navigator.clipboard.writeText(targetText.textContent).then(() => {
     alert("계좌번호가 복사되었습니다 :)");
@@ -96,7 +96,7 @@ let slideToggle = (target, duration = 500) => {
 
 let speedAnimation = 400;
 
-let targetIdList = document.querySelectorAll(".account");
+let targetIdList = document.querySelectorAll(".bank-list");
 targetIdList.forEach((target) =>
   target.querySelector(".triggerToggle").addEventListener("click", function () {
     openToggle(target);

@@ -25,7 +25,7 @@
 var button = document.querySelector(".button");
 var modalContainer = document.querySelector("#modal-container");
 var closeModal = document.querySelector('#close-modal')
-var phone = document.querySelector(".phone");
+var phone = document.querySelector("#phone");
 var btnId = "call";
 
 button.addEventListener("click", function () {

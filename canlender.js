@@ -14,7 +14,7 @@ function buildCalendar() {
   let firstDate = new Date(wedding_year, wedding_month, 1); // 이번달 1일
   let lastDate = new Date(wedding_year, wedding_month + 1, 0); // 이번달 마지막날
 
-  let tbody_Calendar = document.querySelector(".calender-table > tbody");
+  let tbody_Calendar = document.querySelector("#calender-table > tbody");
   document.getElementById("calYear").innerText = wedding_year; // 연도 숫자 갱신
   document.getElementById("calMonth").innerText = wedding_month + 1; // leftPad(wedding_month + 1);
   document.getElementById("calDay").innerText = wedding_day;
