@@ -54,7 +54,8 @@ h3 {
     text-align: center;
 }
 
-#mainImage>img {
+#mainImage>img,
+#subImage>img {
     width: 90%;
 }
 
@@ -79,6 +80,11 @@ h3 {
     background: #fff;
     position: relative;
     z-index: 0;
+}
+
+.content>div>p>span {
+    font-size: small;
+    color: gray;
 }
 
 .content .button {
@@ -138,13 +144,12 @@ h3 {
     padding: 0 5%;
 }
 
-.modal>table>tr {
-    /* padding: 5% 0; */
-}
-
 .modal>table>tr>td {
     text-align: center;
+}
 
+.modal>table>tr>td:first-child{
+    padding: 0;
 }
 
 .modal>div {

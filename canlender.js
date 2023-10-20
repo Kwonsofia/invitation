@@ -3,7 +3,7 @@
 let wedding_year = 2023;
 let wedding_month = 10; // 실제 월 - 1 (11월이면 10으로)
 let wedding_day = 11;
-let wedding_time = "0요일 ?? 00시 00분";
+let wedding_time = "토요일 낮 1시";
 
 window.onload = function () {
   buildCalendar();
