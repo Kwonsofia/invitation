@@ -79,5 +79,3 @@ if (diff == 0) {
     day_sentence.innerText = "일 남았습니다.";
   }
 }
-
-console.log(diff);
