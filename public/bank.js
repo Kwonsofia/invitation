@@ -20,7 +20,7 @@ clipBoard.forEach((target) =>
 );
 
 function copyAccount(target) {
-  var targetText = target.querySelector("#account");
+  var targetText = target.querySelector(".account");
   window.navigator.clipboard.writeText(targetText.textContent).then(() => {
     alert("계좌번호가 복사되었습니다 :)");
   });
