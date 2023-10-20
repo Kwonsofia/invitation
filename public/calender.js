@@ -1,16 +1,5 @@
-// 참고: https://sirius7.tistory.com/35
-
-let wedding_year = 2023;
-let wedding_month = 10; // 실제 월 - 1 (11월이면 10으로)
-let wedding_day = 11;
-let wedding_time = "토요일 낮 1시";
-
-window.onload = function () {
-  buildCalendar();
-}; // 웹 페이지가 로드되면 buildCalendar 실행
-
 // 달력 생성 : 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣는다.
-function buildCalendar() {
+function buildCalendar(wedding_year, wedding_month, wedding_day, wedding_time) {
   let firstDate = new Date(wedding_year, wedding_month, 1); // 이번달 1일
   let lastDate = new Date(wedding_year, wedding_month + 1, 0); // 이번달 마지막날
 
@@ -54,6 +43,41 @@ function buildCalendar() {
   }
 }
 
+function countWeddingDay(wedding_year, wedding_month, wedding_day) {
+  var day_count = document.querySelector("#day-count>span");
+  var day_sentence = document.querySelector("#day-count>p");
+  const toDate = new Date();
+  const weddingDate = new Date(wedding_year, wedding_month, wedding_day);
+  let diff = weddingDate.getTime() - toDate.getTime();
+  if (diff == 0) {
+    day_sentence.innerText = "오늘입니다.";
+  } else {
+    diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    if (diff < 0) {
+      day_sentence.innerText = "지났습니다.";
+    } else {
+      day_count.innerText = diff;
+      day_sentence.innerText = "일 남았습니다.";
+    }
+  }
+}
+
+fetch("http://localhost:8000/wedding-day", {
+    "method":"GET",
+    credentials: "include"})
+    .then(res => res.json())
+    .then(res => {
+        let wedding_year = res['wedding_year'];
+        let wedding_month = res['wedding_month'];
+        let wedding_day = res['wedding_day'];
+        let wedding_time = res['wedding_time'];
+
+        window.onload = function () {
+          buildCalendar(wedding_year, wedding_month, wedding_day, wedding_time);
+        }; // 웹 페이지가 로드되면 buildCalendar 실행
+        countWeddingDay(wedding_year, wedding_month, wedding_day);
+    })
+
 // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
 // function leftPad(value) {
 //     if (value < 10) {
@@ -63,19 +87,4 @@ function buildCalendar() {
 //     return value;
 // }
 
-var day_count = document.querySelector("#day-count>span");
-var day_sentence = document.querySelector("#day-count>p");
-const toDate = new Date();
-const weddingDate = new Date(wedding_year, wedding_month, wedding_day);
-let diff = weddingDate.getTime() - toDate.getTime();
-if (diff == 0) {
-  day_sentence.innerText = "오늘입니다.";
-} else {
-  diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  if (diff < 0) {
-    day_sentence.innerText = "지났습니다.";
-  } else {
-    day_count.innerText = diff;
-    day_sentence.innerText = "일 남았습니다.";
-  }
-}
+
