@@ -82,7 +82,7 @@ h3 {
     z-index: 0;
 }
 
-.content>div>p>span {
+.rel {
     font-size: small;
     color: gray;
 }
