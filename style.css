@@ -555,7 +555,6 @@ li {
 .bank-list {
     margin: 10px 0;
     width: 100%;
-    /* background-color: #f8cfca; */
 }
 
 .bank-list>div>p {
@@ -568,6 +567,7 @@ li {
     padding: 10px 20px;
     background-color: #f8f2e9;
     align-items: center;
+    font-weight: 700;
 }
 
 .triggerToggle>p:last-child {
@@ -580,33 +580,25 @@ li {
 }
 
 .target {
-    background-color: #fffbf4;
-    text-align: center;
-    color: #333;
-    font-weight: 700;
-    box-sizing: border-box;
     display: none;
+}
+
+.target>table {
+    width: 100%;
+    background-color: #fffbf4;
+    padding: 0 5px 0 15px;
     color: #333;
-    padding: 10px;
 }
 
 .clipboard {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
+    border-spacing: 5px;
 }
 
-.clipboard #account {
-    text-align: left;
-}
-
-.clipboard>button {
+.clipboard>td>button {
     border: solid 1px white;
     border-radius: 3em;
     background-color: white;
-    padding: 0 10px;
-    margin: 10px 0;
+    margin: 15px 0;
     height: 80%;
     font-size: x-small;
 }
