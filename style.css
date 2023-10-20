@@ -585,7 +585,7 @@ li {
     color: #333;
     font-weight: 700;
     box-sizing: border-box;
-    /* display: none; */
+    display: none;
     color: #333;
     padding: 10px;
 }
